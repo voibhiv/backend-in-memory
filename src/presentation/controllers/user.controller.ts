@@ -17,7 +17,7 @@ export class UserController {
     this.deleteUserUseCase = new DeleteUserUseCase();
   }
 
-  public getAll(req: Request, res: Response) {
+  public readAll(req: Request, res: Response) {
     return this.getAllUsersUseCase.execute(req, res);
   }
 

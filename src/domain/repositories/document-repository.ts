@@ -24,4 +24,8 @@ export class DocumentRepository {
     };
     return this.db.insert(formattedData);
   }
+
+  public getAllDocuments() {
+    return this.db.findAll();
+  }
 }
