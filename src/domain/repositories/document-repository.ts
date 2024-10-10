@@ -1,5 +1,6 @@
 import { DB } from "../../data/database/db";
 import { CreateDocumentRequestModel } from "../models/document/create-document";
+import { UpdateDocumentRequestModel } from "../models/document/update-document";
 import documents from "./../../data/database/content/documents.json";
 
 export interface Document {
@@ -27,5 +28,12 @@ export class DocumentRepository {
 
   public getAllDocuments() {
     return this.db.findAll();
+  }
+
+  public updateDocument(
+    id: number,
+    data: Omit<UpdateDocumentRequestModel, "id" | "userId">
+  ) {
+    return this.db.updateById(id, data);
   }
 }
