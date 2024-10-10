@@ -49,6 +49,11 @@ export class DB<T extends Record<string, any>> {
     });
   }
 
+  public findById(id: number): T | null {
+    const record = this.records.find((record) => record.id === id);
+    return record || null;
+  }
+
   public findAll(): T[] {
     return this.records;
   }

@@ -30,6 +30,10 @@ export class DocumentRepository {
     return this.db.findAll();
   }
 
+  public getDocumentsByUserId(userId: number) {
+    return this.db.find({ userId });
+  }
+
   public updateDocument(
     id: number,
     data: Omit<UpdateDocumentRequestModel, "id" | "userId">
