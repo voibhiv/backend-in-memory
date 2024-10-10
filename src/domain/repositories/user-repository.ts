@@ -1,7 +1,8 @@
 import { DB } from "../../data/database/db";
-import users from './../../data/database/content/user.json';
+import { CreateUserRequestModel } from "../models/user/create-user.model";
+import users from "./../../data/database/content/user.json";
 
-interface User {
+export interface User {
   id: string;
   name: string;
   email: string;
@@ -18,5 +19,7 @@ export class UserRepository {
     return this.db.findAll();
   }
 
-
+  public createUser(data: CreateUserRequestModel) {
+    return this.db.insert(data);
+  }
 }

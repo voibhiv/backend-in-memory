@@ -5,8 +5,18 @@ export class DB<T extends Record<string, any>> {
     this.records = records;
   }
 
-  public insert(data: T) {
-    this.records.push(data);
+  private generateId(): number {
+    const maxId = this.records.reduce((max, record) => {
+      const recordId = parseInt(record.id as unknown as string, 10);
+      return recordId > max ? recordId : max;
+    }, 0);
+    return maxId + 1;
+  }
+
+  public insert(data: Omit<T, "id">): T {
+    const newRecord = { ...data, id: (this.generateId()).toString() };
+    this.records.push(newRecord as unknown as T);
+    return newRecord as unknown as T;
   }
 
   public updateById(id: string, data: Partial<T>): T | null {
