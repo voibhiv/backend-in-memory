@@ -13,7 +13,7 @@ This project is built using Node.js and Express and adheres to Clean Architectur
 ### Key Features:
 
 Express is used as the web framework to handle HTTP requests and route management.
-Clean Architecture organizes the code into layers, including Entities, Use Cases, Controllers, and Repositories.
+Clean Architecture organizes the code into layers, including Use Cases, Controllers, and Repositories.
 Data is stored in an in-memory database, meaning no external database like PostgreSQL or MongoDB is used. Instead, data persists only during the application's runtime, making it ideal for lightweight or testing scenarios.
 Architecture Layers:
 
