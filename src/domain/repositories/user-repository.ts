@@ -19,11 +19,11 @@ export class UserRepository {
     return this.db.findAll();
   }
 
-  public createUser(data: Omit<CreateUserRequestModel, "id">) {
+  public createUser(data: CreateUserRequestModel) {
     return this.db.insert(data);
   }
 
-  public updateUser(id: number, data: Omit<CreateUserRequestModel, "id">) {
+  public updateUser(id: number, data: CreateUserRequestModel) {
     return this.db.updateById(id, data);
   }
 

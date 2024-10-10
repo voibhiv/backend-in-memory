@@ -1,4 +1,4 @@
-import { IGetAllUsersUseCase } from "../../interfaces/use-cases/get-all-users.use-case.interface";
+import { IGetAllUsersUseCase } from "../../interfaces/use-cases/user/get-all-users.use-case.interface";
 import { Request, Response } from "express";
 import { UserRepository } from "../../repositories/user-repository";
 
