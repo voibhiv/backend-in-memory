@@ -11,6 +11,8 @@ export class GetAllUsersUseCase implements IGetAllUsersUseCase {
     try {
       const users = this.userRepository.getAll();
       res.status(200).json(users);
-    } catch (error) {}
+    } catch (error) {
+      res.status(500).json(error);
+    }
   }
 }

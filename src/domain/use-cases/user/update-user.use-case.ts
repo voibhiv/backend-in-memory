@@ -9,8 +9,12 @@ export class UpdateUserUseCase implements IUpdateUserUseCase {
   execute(req: Request, res: Response): void {
     try {
       const requestBody: Omit<CreateUserRequestModel, "id"> = req.body;
-      const id = Number(req.query.id);
-      const userUpdated = this.userRepository.updateUser(id, requestBody);
+      const { id } = req.query;
+      const userUpdated = this.userRepository.updateUser(
+        Number(id),
+        requestBody
+      );
+
       res.status(200).json(userUpdated);
     } catch (error) {
       res.status(500).json(error);

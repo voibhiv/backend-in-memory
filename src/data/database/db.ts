@@ -30,7 +30,7 @@ export class DB<T extends Record<string, any>> {
     return null;
   }
 
-  public deleteById(id: string): boolean {
+  public deleteById(id: number): boolean {
     const index = this.records.findIndex((record) => record.id === id);
 
     if (index !== -1) {

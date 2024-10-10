@@ -26,4 +26,8 @@ export class UserRepository {
   public updateUser(id: number, data: Omit<CreateUserRequestModel, "id">) {
     return this.db.updateById(id, data);
   }
+
+  public deleteUser(id: number) {
+    return this.db.deleteById(id);
+  }
 }
