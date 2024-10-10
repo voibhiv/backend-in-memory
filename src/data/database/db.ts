@@ -14,12 +14,12 @@ export class DB<T extends Record<string, any>> {
   }
 
   public insert(data: Omit<T, "id">): T {
-    const newRecord = { ...data, id: (this.generateId()).toString() };
+    const newRecord = { id: this.generateId(), ...data };
     this.records.push(newRecord as unknown as T);
     return newRecord as unknown as T;
   }
 
-  public updateById(id: string, data: Partial<T>): T | null {
+  public updateById(id: number, data: Partial<T>): T | null {
     const index = this.records.findIndex((record) => record.id === id);
 
     if (index !== -1) {

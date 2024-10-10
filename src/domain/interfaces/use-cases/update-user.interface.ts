@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 
-
-export interface ICreateUserUseCase {
+export interface IUpdateUserUseCase {
   execute(req: Request, res: Response): void;
 }

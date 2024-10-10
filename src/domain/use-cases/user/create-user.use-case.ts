@@ -1,7 +1,6 @@
 import { ICreateUserUseCase } from "../../interfaces/use-cases/create-user.use-case.interface";
 import {
   CreateUserRequestModel,
-  CreateUserResponseModel,
 } from "../../models/user/create-user.model";
 import { UserRepository } from "../../repositories/user-repository";
 import { Request, Response } from "express";
@@ -11,7 +10,7 @@ export class CreateUserUseCase implements ICreateUserUseCase {
 
   execute(req: Request, res: Response): void {
     try {
-      const requestBody: CreateUserRequestModel = req.body;
+      const requestBody: Omit<CreateUserRequestModel, "id"> = req.body;
       const user = this.userRepository.createUser(requestBody);
       res.status(201).json(user);
     } catch (error) {
