@@ -36,4 +36,8 @@ export class DocumentRepository {
   ) {
     return this.db.updateById(id, data);
   }
+
+  public deleteDocument(id: number) {
+    return this.db.deleteById(id);
+  }
 }
